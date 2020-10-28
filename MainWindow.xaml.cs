@@ -1,4 +1,8 @@
-﻿using System;
+﻿using OpenKey.BIZ;
+using OpenKey.COMMON.Entidades;
+using OpenKey.COMMON.Interfaces;
+using OpenKey.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -25,93 +29,48 @@ namespace OpenKey
     public partial class MainWindow : Window
     {
 
-        System.IO.Ports.SerialPort Arduino;
-        bool IsClosed = false;
-        int NumPRobos = 0;
-        int NumMovimientos = 0;
-        int NumEntradas = 0;
+        
+            IManejadorDeUsuarioJefe manejadorDeUsuarioJefe;
 
         public MainWindow()
         {
             InitializeComponent();
-            Arduino = new System.IO.Ports.SerialPort();
-            Arduino.PortName = "COM5";
-            Arduino.BaudRate = 9600;
-            Arduino.ReadTimeout =500;
-            try
-            {
-                Arduino.Open();
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            manejadorDeUsuarioJefe = new ManejadorDeUsuariosJefe(new RepositorioGenerico<UsuarioJefe>());
+            DatosAIniciar();
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DatosAIniciar()
         {
-           
-        }
-
-        private void AlCerrar(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (Arduino.IsOpen)
-                Arduino.Close();
-        }
-
-        private void EscucharSerial()
-        {
-            while (!IsClosed)
+            if (manejadorDeUsuarioJefe.Read.Count < 1)
             {
-                try
+                UsuarioJefe usuarioJefe = new UsuarioJefe
                 {
-                    string cadena = Arduino.ReadLine();
-
-                    if (cadena == "PRobo\r")
-                        NumPRobos += 1;
-                    if (cadena == "MSospechoso\r")
-                        NumMovimientos += 1;
-                    if (cadena == "PAbierta\r")
-                        NumEntradas += 1; 
-
-                    TxtEntradas.Dispatcher.Invoke(delegate {
-                        TxtEntradas.Text = NumEntradas.ToString();
-
-                    });
-
-                    TxtMovimientos.Dispatcher.Invoke(delegate {
-                        TxtMovimientos.Text = NumMovimientos.ToString();
-
-                    });
-
-                    TxtRobos.Dispatcher.Invoke(delegate {
-                        TxtRobos.Text = NumPRobos.ToString();
-
-                    });
-
-                }
-                  catch (Exception)
+                    Contrasenia = "1234",
+                    Correo = "admin@admin",
+                    Nombre = "admin"
+                };
+                if (manejadorDeUsuarioJefe.Create(usuarioJefe))
                 {
-
-                    
+                    MessageBox.Show("User creado exitasamente");
                 }
             }
         }
 
-        private void AlCerrarFormulario(object sender, EventArgs e)
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            IsClosed = true;
-            if (Arduino.IsOpen)
-                Arduino.Close();
-        }
+            if(!string.IsNullOrWhiteSpace(txtCorreo.Text) && !string.IsNullOrWhiteSpace(_Password.Password))
+            {
+                if (manejadorDeUsuarioJefe.BuscarUsuario(txtCorreo.Text, _Password.Password))
+                {
+                    MessageBox.Show("Usuario encontrado");
+                }
+                else
+                {
 
-        private void Load(object sender, RoutedEventArgs e)
-        {
-            Thread hILO = new Thread(EscucharSerial);
-            hILO.Start();
+                    MessageBox.Show("Error de datos","Error",MessageBoxButton.OK,MessageBoxImage.Warning);
+                }
+            }
         }
     }
 }

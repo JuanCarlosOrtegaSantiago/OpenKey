@@ -17,7 +17,7 @@ namespace OpenKey.DAL
 
         public RepositorioGenerico()
         {
-            client = new MongoClient("mongodb://UserOpenKey:OpenKey1234@bdopenkey-shard-00-00.xg6rg.mongodb.net:27017,bdopenkey-shard-00-01.xg6rg.mongodb.net:27017,bdopenkey-shard-00-02.xg6rg.mongodb.net:27017/BdOpenKey?ssl=true&replicaSet=atlas-cd6vj8-shard-0&authSource=admin&retryWrites=true&w=majority");
+            client = new MongoClient(@"mongodb://UserOpenKey:U1234@bdopenkey-shard-00-00.xg6rg.mongodb.net:27017,bdopenkey-shard-00-01.xg6rg.mongodb.net:27017,bdopenkey-shard-00-02.xg6rg.mongodb.net:27017/BdOpenKey?ssl=true&replicaSet=atlas-cd6vj8-shard-0&authSource=admin&retryWrites=true&w=majority");
             db = client.GetDatabase("BdOpenKey");
         }
 

@@ -4,7 +4,7 @@
              x:Class="OpenKey.MOVIL.MainPage">
 
     <StackLayout>
-        <Button Text="hola" Clicked="Button_Clicked" ></Button>
+        <Button Text="hola" ></Button>
     </StackLayout>
 
 </ContentPage>

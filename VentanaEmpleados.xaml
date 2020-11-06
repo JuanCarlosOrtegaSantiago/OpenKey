@@ -1,0 +1,94 @@
+﻿<Window x:Class="OpenKey.VentanaEmpleados"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenKey"
+        mc:Ignorable="d"
+        Title="VentanaEmpleados" Height="450" Width="600" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone Mode="PrimaryDark" Grid.Row="0">
+
+            <StackPanel HorizontalAlignment="Left">
+                <Button Width="40" Height="40" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  Click="Button_Click">
+                    <materialDesign:PackIcon Kind="NavigateBefore" Width="40" Height="40"/>
+                </Button>
+            </StackPanel>
+
+        </materialDesign:ColorZone>
+
+        <Grid  Grid.Row="1">
+            <materialDesign:ColorZone Mode="PrimaryMid" >
+                <TextBlock Text="Empleados" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin=" 30 50 0 10"/>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="StackCrear" Orientation="Vertical" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Visibility="Collapsed">
+                <TextBox x:Name="txtNombre" Width="300" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <TextBox x:Name="txtCorreo" Width="300" materialDesign:HintAssist.Hint="Correo" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <TextBox x:Name="txtContrasenia" Width="300" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <TextBox x:Name="txtDireccion" Width="300" materialDesign:HintAssist.Hint="Direccion" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <TextBox x:Name="txtTelefono" Width="300" materialDesign:HintAssist.Hint="Telefono" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <Button x:Name="btnGuardar" HorizontalAlignment="Right" Margin="20,5" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="btnGuardar_Click">Guardar</Button>
+            </StackPanel>
+
+            <ListView x:Name="listEmpleados" Grid.Row="1" Grid.Column="0" Margin="20,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Grid.RowSpan="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" >
+
+                                <Label Content="{Binding Nombre}" ></Label>
+                                <Label Content="{Binding IdEmpleado}" Margin="10,0"></Label>
+                                <Label Content="{Binding NumTelefono}" Margin="10,0"></Label>
+
+                            </StackPanel>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Button x:Name="btnCrear" Width="100" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Click="btnCrear_Click" Margin="0,10">Crear</Button>
+                <Button x:Name="btnEliminar" Width="100" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Click="btnEliminar_Click" Margin="0,10">Eliminar</Button>
+                <Button x:Name="btnCancelar" Width="100" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Click="btnCancelar_Click" Margin="0,10">Cancelar</Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>

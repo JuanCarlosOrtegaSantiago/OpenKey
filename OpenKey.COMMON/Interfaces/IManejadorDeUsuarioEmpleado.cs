@@ -7,5 +7,6 @@ namespace OpenKey.COMMON.Interfaces
 {
     public interface IManejadorDeUsuarioEmpleado:IManejadorGenerico<UsuarioEmpleado>
     {
+        bool BuscarUsuario(string Correo, string Contrasenia);
     }
 }

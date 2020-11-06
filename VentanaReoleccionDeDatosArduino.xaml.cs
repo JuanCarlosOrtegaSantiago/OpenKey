@@ -35,16 +35,11 @@ namespace OpenKey
             try
             {
                 Arduino.Open();
-                
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
-
         }
 
         private void AlCerrar(object sender, System.ComponentModel.CancelEventArgs e)
@@ -105,5 +100,11 @@ namespace OpenKey
             hILO.Start();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaMenu ventanaMenu = new VentanaMenu();
+            this.Close();
+            ventanaMenu.Show();
+        }
     }
 }

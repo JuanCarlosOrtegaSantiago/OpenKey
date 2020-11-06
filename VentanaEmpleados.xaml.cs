@@ -40,14 +40,13 @@ namespace OpenKey
             txtDireccion.Clear();
             txtNombre.Clear();
             txtTelefono.Clear();
+            txtPuesto.Clear();
         }
 
         private void CargarDatos()
         {
             listEmpleados.ItemsSource = null;
             listEmpleados.ItemsSource = manejadorDeUsuarioEmpleado.Read;
-
-
         }
 
         private void EstadoDeBotones(bool v)
@@ -68,7 +67,7 @@ namespace OpenKey
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtContrasenia.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
+            if (string.IsNullOrWhiteSpace(txtContrasenia.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtPuesto.Text))
             {
                 MessageBox.Show("Faltan datos por llenar", "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
@@ -81,7 +80,8 @@ namespace OpenKey
                 Correo = txtCorreo.Text,
                 Direccion = txtDireccion.Text,
                 Nombre = txtNombre.Text,
-                NumTelefono = txtTelefono.Text
+                NumTelefono = txtTelefono.Text,
+                Puesto = txtPuesto.Text
             };
 
             int idEmpleado = manejadorDeUsuarioEmpleado.Read.Count();

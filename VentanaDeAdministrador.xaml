@@ -34,7 +34,7 @@
 
         <Grid  Grid.Row="1">
             <materialDesign:ColorZone Mode="PrimaryMid" >
-                <TextBlock Text="Empleados" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin=" 30 50 0 10"/>
+                <TextBlock Text="Administrador" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin=" 30 50 0 10"/>
             </materialDesign:ColorZone>
         </Grid>
 
@@ -55,10 +55,11 @@
                 <TextBox x:Name="txtContrasenia" Width="300" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
                 <TextBox x:Name="txtDireccion" Width="300" materialDesign:HintAssist.Hint="Direccion" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
                 <TextBox x:Name="txtTelefono" Width="300" materialDesign:HintAssist.Hint="Telefono" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <TextBox x:Name="txtCargo" Width="300" materialDesign:HintAssist.Hint="Cargo" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
                 <Button x:Name="btnGuardar" HorizontalAlignment="Right" Margin="20,5" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="btnGuardar_Click">Guardar</Button>
             </StackPanel>
 
-            <ListView x:Name="listEmpleados" Grid.Row="1" Grid.Column="0" Margin="20,0">
+            <ListView x:Name="listAdministardores" Grid.Row="1" Grid.Column="0" Margin="20,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Grid.RowSpan="5">
@@ -69,7 +70,7 @@
                             <StackPanel Grid.Row="1" Orientation="Horizontal" >
 
                                 <Label Content="{Binding Nombre}" ></Label>
-                                <Label Content="{Binding IdEmpleado}" Margin="10,0"></Label>
+                                <Label Content="{Binding Cargo}" Margin="10,0"></Label>
                                 <Label Content="{Binding NumTelefono}" Margin="10,0"></Label>
 
                             </StackPanel>

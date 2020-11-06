@@ -23,11 +23,11 @@ namespace OpenKey
     /// </summary>
     public partial class VentanaDeAdministrador : Window
     {
-        IManejadorDeUsuarioEmpleado manejadorDeUsuarioEmpleado;
+        IManejadorDeUsuarioJefe manejadorDeUsuarioJefe;
         public VentanaDeAdministrador()
         {
             InitializeComponent();
-            manejadorDeUsuarioEmpleado = new ManejadorDeUsuarioEmpleado(new RepositorioGenerico<UsuarioEmpleado>());
+            manejadorDeUsuarioJefe = new ManejadorDeUsuariosJefe(new RepositorioGenerico<UsuarioJefe>());
             CargarDatos();
             Limpiar();
             EstadoDeBotones(true);
@@ -40,14 +40,13 @@ namespace OpenKey
             txtDireccion.Clear();
             txtNombre.Clear();
             txtTelefono.Clear();
+            txtCargo.Clear();
         }
 
         private void CargarDatos()
         {
-            listEmpleados.ItemsSource = null;
-            listEmpleados.ItemsSource = manejadorDeUsuarioEmpleado.Read;
-
-
+            listAdministardores.ItemsSource = null;
+            listAdministardores.ItemsSource = manejadorDeUsuarioJefe.Read;
         }
 
         private void EstadoDeBotones(bool v)
@@ -60,37 +59,34 @@ namespace OpenKey
         private void btnCrear_Click(object sender, RoutedEventArgs e)
         {
             StackCrear.Visibility = Visibility.Visible;
-            listEmpleados.Visibility = Visibility.Collapsed;
+            listAdministardores.Visibility = Visibility.Collapsed;
             Limpiar();
             EstadoDeBotones(false);
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
-            if (string.IsNullOrWhiteSpace(txtContrasenia.Text) && string.IsNullOrWhiteSpace(txtCorreo.Text) && string.IsNullOrWhiteSpace(txtDireccion.Text) && string.IsNullOrWhiteSpace(txtNombre.Text) && string.IsNullOrWhiteSpace(txtTelefono.Text))
+            if (string.IsNullOrWhiteSpace(txtContrasenia.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtCargo.Text))
             {
                 MessageBox.Show("Faltan datos por llenar", "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
 
             }
 
-            UsuarioEmpleado usuarioEmpleado = new UsuarioEmpleado()
+            UsuarioJefe usuarioJefe = new UsuarioJefe()
             {
                 Contrasenia = txtContrasenia.Text,
                 Correo = txtCorreo.Text,
                 Direccion = txtDireccion.Text,
                 Nombre = txtNombre.Text,
-                NumTelefono = txtTelefono.Text
+                NumTelefono = txtTelefono.Text,
+                 Cargo=txtCargo.Text
             };
 
-            int idEmpleado = manejadorDeUsuarioEmpleado.Read.Count();
-            usuarioEmpleado.IdEmpleado = idEmpleado+=1;
-
-            if (manejadorDeUsuarioEmpleado.Create(usuarioEmpleado))
+            if (manejadorDeUsuarioJefe.Create(usuarioJefe))
             {
                 StackCrear.Visibility = Visibility.Collapsed;
-                listEmpleados.Visibility = Visibility.Visible;
+                listAdministardores.Visibility = Visibility.Visible;
                 CargarDatos();
             }
 
@@ -107,15 +103,15 @@ namespace OpenKey
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if (listEmpleados.SelectedItem == null)
+            if (listAdministardores.SelectedItem == null)
                 return;
 
-            UsuarioEmpleado usuarioEmpleado = (UsuarioEmpleado)listEmpleados.SelectedItem;
+            UsuarioEmpleado usuarioEmpleado = (UsuarioEmpleado)listAdministardores.SelectedItem;
 
             if (MessageBox.Show("Desea eliminar a: \n" + usuarioEmpleado.Nombre, "Precaución", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
 
-                if (manejadorDeUsuarioEmpleado.Delete(usuarioEmpleado.id))
+                if (manejadorDeUsuarioJefe.Delete(usuarioEmpleado.id))
                 {
                     CargarDatos();
                     MessageBox.Show("Correcto", "Hecho", MessageBoxButton.OK,MessageBoxImage.Information);
@@ -135,7 +131,7 @@ namespace OpenKey
             Limpiar();
 
             StackCrear.Visibility = Visibility.Collapsed;
-            listEmpleados.Visibility = Visibility.Visible;
+            listAdministardores.Visibility = Visibility.Visible;
 
         }
     }

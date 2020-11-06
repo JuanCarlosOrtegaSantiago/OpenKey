@@ -6,5 +6,6 @@ namespace OpenKey.COMMON.Entidades
 {
     public class UsuarioJefe:UsuariosGenerico
     {
+        public string Cargo { get; set; }
     }
 }

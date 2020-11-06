@@ -8,6 +8,7 @@ namespace OpenKey.COMMON.Entidades
     {
         public int IdEmpleado { get; set; }
         public int NumEntradas { get; set; }
+        public string Puesto { get; set; }
 
     }
 }

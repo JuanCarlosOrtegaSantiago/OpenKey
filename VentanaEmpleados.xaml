@@ -56,6 +56,7 @@
                 <TextBox x:Name="txtContrasenia" Width="300" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
                 <TextBox x:Name="txtDireccion" Width="300" materialDesign:HintAssist.Hint="Direccion" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
                 <TextBox x:Name="txtTelefono" Width="300" materialDesign:HintAssist.Hint="Telefono" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
+                <TextBox x:Name="txtPuesto" Width="300" materialDesign:HintAssist.Hint="Puesto" materialDesign:HintAssist.IsFloating="True" Margin="5 0" Padding="5,0"/>
                 <Button x:Name="btnGuardar" HorizontalAlignment="Right" Margin="20,5" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="btnGuardar_Click">Guardar</Button>
             </StackPanel>
 
@@ -71,6 +72,7 @@
 
                                 <Label Content="{Binding Nombre}" ></Label>
                                 <Label Content="{Binding IdEmpleado}" Margin="10,0"></Label>
+                                <Label Content="{Binding Puesto}" Margin="10,0"></Label>
                                 <Label Content="{Binding NumTelefono}" Margin="10,0"></Label>
 
                             </StackPanel>

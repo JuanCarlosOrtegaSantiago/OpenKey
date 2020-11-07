@@ -81,7 +81,8 @@ namespace OpenKey
                 Direccion = txtDireccion.Text,
                 Nombre = txtNombre.Text,
                 NumTelefono = txtTelefono.Text,
-                Puesto = txtPuesto.Text
+                Puesto = txtPuesto.Text,
+                 NumEntradas=0
             };
 
             int idEmpleado = manejadorDeUsuarioEmpleado.Read.Count();

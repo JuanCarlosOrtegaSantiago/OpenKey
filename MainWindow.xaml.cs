@@ -60,20 +60,19 @@ namespace OpenKey
         //private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         private void Image_MouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
-            //if(!string.IsNullOrWhiteSpace(txtCorreo.Text) && !string.IsNullOrWhiteSpace(_Password.Password))
-            //{
-            //    if (manejadorDeUsuarioJefe.BuscarUsuario(txtCorreo.Text, _Password.Password))
-            //    {
-            VentanaMenu ventanaMenu = new VentanaMenu();
-            this.Close();
-            ventanaMenu.Show();
-            //    }
-            //    else
-            //    {
-
-            //        MessageBox.Show("Error de datos","Error",MessageBoxButton.OK,MessageBoxImage.Warning);
-            //    }
-            //}
+            if (!string.IsNullOrWhiteSpace(txtCorreo.Text) && !string.IsNullOrWhiteSpace(_Password.Password))
+            {
+                if (manejadorDeUsuarioJefe.BuscarUsuario(txtCorreo.Text, _Password.Password))
+                {
+                    VentanaMenu ventanaMenu = new VentanaMenu();
+                    this.Close();
+                    ventanaMenu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Error de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

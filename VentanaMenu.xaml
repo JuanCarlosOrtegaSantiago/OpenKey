@@ -14,7 +14,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenKey" 
         mc:Ignorable="d"
-        Title="VentanaMenu" Height="300" Width="500" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen">
+        Title="VentanaMenu" Height="350" Width="750" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen">
 
 
 
@@ -38,34 +38,42 @@
 
         <Grid Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-                <Button x:Name="btnAdmin" Grid.Row="1" Grid.Column="0" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnAdmin_Click">
+                <Button x:Name="btnAdmin" Grid.Row="1" Grid.Column="0" Width="170" Height="160" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnAdmin_Click">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                         <materialDesign:PackIcon Kind="HowToReg" Width="90" Height="90" HorizontalAlignment="Center"/>
                     <Label Foreground="White" HorizontalAlignment="Center">Administardor</Label>
                     </StackPanel>
                 </Button>
-            
-            <Button x:Name="btnEmpleados" Grid.Row="1" Grid.Column="1" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnEmpleados_Click">
+
+            <Button x:Name="btnEmpleados" Grid.Row="1" Grid.Column="1" Width="170" Height="160" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnEmpleados_Click">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="Work" Width="90" Height="90" HorizontalAlignment="Center"/>
                     <Label Foreground="White" HorizontalAlignment="Center">Empleados</Label>
                 </StackPanel>
             </Button>
 
-            <Button x:Name="btnDCircuito" Grid.Row="1" Grid.Column="2" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnDCircuito_Click">
+            <Button x:Name="btnDCircuito" Grid.Row="1" Grid.Column="2" Width="170" Height="160" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnDCircuito_Click">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="Memory" Width="90" Height="90" HorizontalAlignment="Center"/>
                     <Label Foreground="White" HorizontalAlignment="Center">Datos del circuito</Label>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnCActuadores" Grid.Row="1" Grid.Column="3" Width="170" Height="160" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="{StaticResource PrimaryHueDarkBrush}" Padding="5" Click="btnCActuadores_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="SettingsInputComponent" Width="90" Height="90" HorizontalAlignment="Center"/>
+                    <Label Foreground="White" HorizontalAlignment="Center">Controlando actuadores</Label>
                 </StackPanel>
             </Button>
 

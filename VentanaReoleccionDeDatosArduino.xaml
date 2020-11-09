@@ -13,10 +13,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OpenKey"
+        xmlns:local="clr-namespace:OpenKey" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="VentanaReoleccionDeDatosArduino" Height="450" Width="600" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen">
-    <Grid>
+        d:DesignHeight="300" d:DesignWidth="500" 
+             d:DataContext="{d:DesignInstance local:VentanaReoleccionDeDatosArduino}"
+        Title="VentanaReoleccionDeDatosArduino" Height="450" Width="600" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen" Loaded="Load">
+    
+    <Grid Loaded="Load">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -40,7 +43,7 @@
             </materialDesign:ColorZone>
         </Grid>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
+        <!--<StackPanel Grid.Row="2" Orientation="Horizontal">
             
         <StackPanel  VerticalAlignment="Center">
             <Label>Numero de posibles robos</Label>
@@ -56,7 +59,80 @@
             <Label>Numero de entradas</Label>
             <TextBlock x:Name="TxtEntradas" FontSize="50" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
-        </StackPanel>
+        </StackPanel>-->
+
+        <!--<Grid Grid.Row="2">
+            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="OpenKey" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Sensores" Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.DataTooltip>
+                    <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+                </lvc:CartesianChart.DataTooltip>
+            </lvc:CartesianChart>
+        </Grid>-->
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+
+            <lvc:PieChart x:Name="_ContGrafDatosArduino" Grid.Column="0" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" >
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries x:Name="GrafSensorDeMovimiento" Title="Movimiento sospechos" Values="{Binding ValueSensorDeMovimiento}" DataLabels="True"  
+                               LabelPoint="{Binding PointLabel}"/>
+                    <!--Values=""-->
+                    <lvc:PieSeries x:Name="GrafPosibleRobo" Title="Posibles robos" Values="{Binding ValuePosibleRobo}" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                    <!---->
+                </lvc:PieChart.Series>
+            </lvc:PieChart>
+
+            <Grid x:Name="_ContGrafEmpleados" Grid.Column="0" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListView x:Name="ListEmpleados" Grid.Column="0" SelectionChanged="ListView_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Content="{Binding Nombre}" Foreground="{StaticResource PrimaryHueDarkBrush}"></Label>
+                                <Label Grid.Column="2" Content="{Binding Puesto}" Foreground="{StaticResource PrimaryHueDarkBrush}"></Label>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                <lvc:Gauge x:Name="GrafEmpleados" Grid.Column="1" Margin="5"
+                   Uses360Mode="True"
+                   From="0" To="100" Value="20"
+                   HighFontSize="60" Foreground="{StaticResource PrimaryHueDarkForegroundBrush}"
+                   InnerRadius="0" GaugeBackground="{StaticResource PrimaryHueLightBrush}" FromColor="{StaticResource Primary500}"/>
+            </Grid>
+            
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Button x:Name="BtnDatosArduino" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="5" Margin="0,20" Click="BtnDatosArduino_Click">Datos Ardino</Button>
+
+                <Button x:Name="btnEntardas" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="5" Margin="0,20" Click="btnEntardas_Click">Datos de entradas</Button>
+                
+            </StackPanel>
+
+        </Grid>
+
         <Frame Grid.Row="3" Background="{StaticResource PrimaryHueDarkBrush}"/>
 
     </Grid>

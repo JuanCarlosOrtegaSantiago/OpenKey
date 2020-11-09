@@ -1,0 +1,85 @@
+﻿<Window x:Class="OpenKey.VentanaControlandoActuadores"
+        
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenKey"
+        mc:Ignorable="d"
+        Title="VentanaControlandoActuadores" Height="450" Width="500" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen" Loaded="Load" Background="{StaticResource PrimaryHueMidBrush}">
+
+    <Grid Loaded="Load">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone Mode="PrimaryDark" Grid.Row="0">
+
+            <StackPanel HorizontalAlignment="Left">
+                <Button Width="40" Height="40" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  Click="Button_Click">
+                    <materialDesign:PackIcon Kind="NavigateBefore" Width="40" Height="40"/>
+                </Button>
+            </StackPanel>
+
+        </materialDesign:ColorZone>
+
+        <Grid  Grid.Row="1">
+            <materialDesign:ColorZone Mode="PrimaryMid" >
+                <TextBlock Text="Controlando actuadores" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <StackPanel Grid.Row="2" VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/> 
+                    <RowDefinition Height="*"/> 
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" Width="150" Height="150" Margin="15" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="5" Background="{StaticResource PrimaryHueDarkBrush}">
+                    <StackPanel Orientation="Vertical" >
+                        <Image Source="img/SensorInfra.png" Width="100" Height="100"></Image>
+                        <Label Foreground="White">Sensor de movimiento</Label>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Column="1" Grid.Row="0" Width="150" Height="150" Margin="15" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="5" Background="{StaticResource PrimaryHueDarkBrush}">
+                    <StackPanel Orientation="Vertical" >
+                        <Image Source="img/SensorPir.png" Width="100" Height="100"></Image>
+                        <Label Foreground="White">Sensor de movimiento</Label>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Column="0" Grid.Row="1" Width="150" Height="150" Margin="15" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="5" Background="{StaticResource PrimaryHueDarkBrush}">
+                    <StackPanel Orientation="Vertical" >
+                        <Image Source="img/Servo.png" Width="100" Height="100"></Image>
+                        <Label Foreground="White">Sensor de movimiento</Label>
+                    </StackPanel>
+                </Button>
+                
+                <Button Grid.Column="1" Grid.Row="1" Width="150" Height="150" Margin="15" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="5" Background="{StaticResource PrimaryHueDarkBrush}">
+                    <StackPanel Orientation="Vertical" >
+                        <Image Source="img/sms.png" Width="100" Height="100"></Image>
+                        <Label Foreground="White">Sensor de movimiento</Label>
+                    </StackPanel>
+                </Button>
+                
+                
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>

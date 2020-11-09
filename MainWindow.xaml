@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenKey"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="425" WindowStyle="None"  AllowsTransparency="True"  WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="370" Width="425" WindowStyle="None"  AllowsTransparency="True"  WindowStartupLocation="CenterScreen">
     <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -91,15 +91,15 @@
 
                 <CheckBox Content="Recordar Contraseña" Margin=" 0 30 0 0 "/>
 
-                <Button Content="Iniciar" Width="120" HorizontalAlignment="Right" Margin=" 0 20 70 0" Click="Image_MouseLeftButtonDown"/>
-                <materialDesign:Card Margin=" 0 30 10 10" Padding="15" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+                <Button Content="Iniciar" Width="120" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Margin=" 0 20 70 0" Click="Image_MouseLeftButtonDown"/>
+                <!--<materialDesign:Card Margin=" 0 30 10 10" Padding="15" materialDesign:ShadowAssist.ShadowDepth="Depth4">
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock><Hyperlink >  Olvidaste la contraseña </Hyperlink>
 
                         </TextBlock>
                     </StackPanel >
-                </materialDesign:Card>
+                </materialDesign:Card>-->
 
             </StackPanel>
         </Grid>

@@ -51,5 +51,12 @@ namespace OpenKey
             this.Close();
             ventanaReoleccionDeDatosArduino.Show();
         }
+
+        private void btnCActuadores_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaControlandoActuadores ventanaControlandoActuadores = new VentanaControlandoActuadores();
+            this.Close();
+            ventanaControlandoActuadores = new VentanaControlandoActuadores();
+        }
     }
 }

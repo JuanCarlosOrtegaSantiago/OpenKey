@@ -128,6 +128,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VentanaControlandoActuadores.xaml.cs">
+      <DependentUpon>VentanaControlandoActuadores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaDeAdministrador.xaml.cs">
       <DependentUpon>VentanaDeAdministrador.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanaControlandoActuadores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanaDeAdministrador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +207,10 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy32.dll" />
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
+    <Resource Include="Img\SensorInfra.png" />
+    <Resource Include="Img\SensorPir.png" />
+    <Resource Include="Img\Servo.png" />
+    <Resource Include="Img\sms.png" />
     <Resource Include="Img\Entry.png" />
     <Resource Include="Img\jitomates.jpg" />
   </ItemGroup>

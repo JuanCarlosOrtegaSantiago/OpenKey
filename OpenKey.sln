@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG", "IMG", "{A97FC82C-663
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\Desktop\OpenKey\Entry.png = ..\..\..\Desktop\OpenKey\Entry.png
 		..\..\..\Desktop\OpenKey\jitomates.jpg = ..\..\..\Desktop\OpenKey\jitomates.jpg
+		..\..\..\Desktop\OpenKey\SensorInfra.png = ..\..\..\Desktop\OpenKey\SensorInfra.png
+		..\..\..\Desktop\OpenKey\SensorPir.png = ..\..\..\Desktop\OpenKey\SensorPir.png
+		..\..\..\Desktop\OpenKey\Servo.png = ..\..\..\Desktop\OpenKey\Servo.png
+		..\..\..\Desktop\OpenKey\sms.png = ..\..\..\Desktop\OpenKey\sms.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movil", "Movil", "{EC50832A-7F9B-4A04-A61F-E5E2CF570770}"

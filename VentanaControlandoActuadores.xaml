@@ -13,9 +13,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenKey"
         mc:Ignorable="d"
-        Title="VentanaControlandoActuadores" Height="450" Width="500" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen" Loaded="Load" Background="{StaticResource PrimaryHueMidBrush}">
+        Title="VentanaControlandoActuadores" Height="500" Width="550" WindowStyle="None"   AllowsTransparency="True"  WindowStartupLocation="CenterScreen" Background="{StaticResource PrimaryHueMidBrush}">
 
-    <Grid Loaded="Load">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
